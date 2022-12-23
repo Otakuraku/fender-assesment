@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header this}}
+
+<body>
+{{> navigation this}}
+
+{{!-- Profile --}}
+
+{{> messages this}}
+
+<div class="card text-center mx-auto" style="width: 18rem;">
+    <img class="card-img-top" src="data:image/jpeg;base64, {{profile.profilePic}}" alt="Profile pic">
+    <div class="card-body">
+        <p class="card-text" style="font-size: 2em;">{{profile.name}}</p>
+        <p class="card-text">{{profile.email}}</p>
+    </div>
+</div>
+<h1 class="text-center mt-4">Favorites</h1>
+<div class="row mt-4 p-4">
+    {{#each rickyFavs}}
+    <div class="col-3">
+        <div class="card">
+            <img class="card-img-top" src="{{this.data.image}}" alt="Profile pic">
+            <div class="card-body">
+                <p class="card-text" style="font-size: 2em;">{{this.data.name}}</p>
+                <p class="card-text">{{this.data.species}}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{#each pokemonFavs}}
+    <div class="col-3">
+        <div class="card">
+            <img class="card-img-top" src="{{this.data.sprites.front_default}}" alt="Profile pic">
+            <div class="card-body">
+                <p class="card-text" style="font-size: 2em;">{{this.data.name}}</p>
+                <p class="card-text">{{this.data.species.name}}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+{{> footer this}}
+</body>
+</html>

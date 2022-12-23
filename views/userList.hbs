@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header this}}
+
+<body>
+{{> navigation this}}
+
+{{!-- User List --}}
+
+{{> messages this}}
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#each users}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td>
+                <a class="btn btn-info" href="/updateUser/{{this.id}}">Update</a>
+                <button type="button" class="btn btn-warning" {{#if this.isMe}}disabled="disabled"{{/if}} onclick="document.getElementById('realDelete{{this.id}}').style.display = 'block';">Delete</button>
+                <a class="btn btn-danger" href="/deleteUser/{{this.id}}" id="realDelete{{this.id}}" style="display:none;">Really Delete</a>
+            </td>
+        </tr>
+    {{/each}}
+
+    </tbody>
+</table>
+
+{{> footer this}}
+</body>
+</html>

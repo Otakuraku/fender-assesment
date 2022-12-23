@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header this}}
+
+<body>
+{{> navigation this}}
+
+{{!-- Rick and Morty Character Details --}}
+
+{{> messages this}}
+
+<div class="card text-center mx-auto" style="width: 20rem;">
+    <img class="card-img-top" src="{{image}}" alt="Profile pic">
+    <div class="card-body">
+        <p class="card-text" style="font-size: 2em;">{{name}}</p>
+        {{#each attributes}}
+        <div class="row">
+            <div class="card-text col-6">{{this.label}}</div>
+            <div class="card-text col-6">{{this.value}}</div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+{{> footer this}}
+</body>
+</html>

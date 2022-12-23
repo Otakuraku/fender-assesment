@@ -1,0 +1,18 @@
+<div>
+    <nav class="nav nav-pills nav-fill p-3">
+        <a class="nav-item nav-link pt-3" href="#"><h4>Rick & Pokemon Menu {{someText}}</h4></a>
+        <a class="nav-item nav-link pt-3 {{#if isHome}}active{{/if}}" href="/">Home</a>
+        {{#if isNotLogged}}
+        <a class="nav-item nav-link pt-3 {{#if isLogin}}active{{/if}}" href="/login">Login</a>
+        <a class="nav-item nav-link pt-3 {{#if isRegister}}active{{/if}}" href="/register">Register</a>
+        {{/if}}
+        {{#if isLogged}}
+        <a class="nav-item nav-link pt-3 {{#if isProfile}}active{{/if}}" href="/profile">Profile</a>
+        <a class="nav-item nav-link pt-3 {{#if isRickAndMorty}}active{{/if}}" href="/rickandmorty">Rick and Morty</a>
+        <a class="nav-item nav-link pt-3 {{#if isPokemon}}active{{/if}}" href="/pokemon">Pokemon</a>
+        <a class="nav-item nav-link pt-3 {{#if isVersus}}active{{/if}}" href="/versus">Versus</a>
+        <a class="nav-item nav-link pt-3 {{#if isUsers}}active{{/if}}" href="/userList">Users</a>
+        <a class="nav-item nav-link pt-3 {{#if isLogout}}active{{/if}}" href="/logout">Logout</a>
+        {{/if}}
+    </nav>
+</div>

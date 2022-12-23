@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header this}}
+
+<body>
+{{> navigation this}}
+
+{{!-- Versus --}}
+
+{{> messages this}}
+
+<h1 class="text-center mt-4">Versus</h1>
+<div class="row mt-4 p-4">
+    <div class="col-3"></div>
+    <div class="col-3">
+        <div class="card">
+            <img class="card-img-top" src="{{rickAndMortyChar.image}}" alt="Profile pic">
+            <div class="card-body">
+                <p class="card-text" style="font-size: 2em;">{{rickAndMortyChar.name}}</p>
+                <p class="card-text">{{rickAndMortyChar.species}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card">
+            <img class="card-img-top" src="{{pokemonChar.sprites.front_default}}" alt="Profile pic">
+            <div class="card-body">
+                <p class="card-text" style="font-size: 2em;">{{pokemonChar.name}}</p>
+                <p class="card-text">{{pokemonChar.species.name}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+{{> footer this}}
+</body>
+</html>

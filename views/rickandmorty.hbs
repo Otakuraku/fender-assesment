@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header this}}
+
+<body>
+{{> navigation this}}
+
+{{!-- Rick and Morty List --}}
+
+{{> messages this}}
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Species</th>
+            <th>Gender</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#each rickandmortycharacters}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td><img src="{{this.image}}" alt="{{this.name}}" width="100" height="100"/></td>
+            <td>{{this.name}}</td>
+            <td>{{this.species}}</td>
+            <td>{{this.gender}}</td>
+            <td>
+                <a class="btn btn-info" href="/rickandmorty/character/{{this.id}}">See more</a>
+                {{#if this.isNotFavorite}}
+                <a class="btn btn-success" href="/rickandmorty/favorite/{{this.id}}">Favorite</a>
+                {{/if}}
+                {{#if this.isFavorite}}
+                <a class="btn btn-warning" href="/rickandmorty/unfavorite/{{this.id}}">Remove from favorites</a>
+                {{/if}}
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+<div class="container p-4 mx-auto" style="width: 18rem;">
+    {{#if prevPage}}
+    <a class="btn btn-info" href="/rickandmorty/{{prevPage}}">Prev</a>
+    {{/if}}
+    {{#if nextPage}}
+    <a class="btn btn-info" href="/rickandmorty/{{nextPage}}">Next</a>
+    {{/if}}
+</div>
+
+{{> footer this}}
+</body>
+</html>
